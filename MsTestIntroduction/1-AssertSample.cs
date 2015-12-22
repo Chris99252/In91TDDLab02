@@ -77,7 +77,7 @@ namespace MsTestIntroduction
 			};
 
 			//this test will pass; when you override Equals(), AreEqual will invoke Order's Equals(), rather than Object's Equals()
-			//Assert.AreSame(expected, actual); //驗證是否為同一個物件（相同）, 等同於 Assert.IsTrue(Object.RefrenceEquals(expected,actual))
+			Assert.AreSame(expected, actual); //驗證是否為同一個物件（相同）, 等同於 Assert.IsTrue(Object.RefrenceEquals(expected,actual))
 			//Assert.AreEqual(expected, actual); //驗證兩個物件是否相等（相等）, 等同於 Assert.IsTrue(Object.Equals(a,b))
 		}
 
