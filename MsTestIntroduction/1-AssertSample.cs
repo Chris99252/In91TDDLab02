@@ -100,10 +100,10 @@ namespace MsTestIntroduction
 				Age = 10,
 			};
 
-			Assert.Inconclusive();
-		}
+            expected.ToExpectedObject().ShouldEqual(actual);
+        }
 
-		[TestMethod]
+        [TestMethod]
 		public void Test_PersonCollection_Equals_with_ExpectedObjects()
 		{
 			var expected = new List<Person>
@@ -120,8 +120,8 @@ namespace MsTestIntroduction
 				new Person { Id=3, Name="C",Age=30},
 			};
 
-			Assert.Inconclusive();
-		}
+            expected.ToExpectedObject().ShouldEqual(actual);
+        }
 
 		[TestMethod]
 		public void Test_ComposedPerson_Equals_with_ExpectedObjects()
@@ -141,9 +141,9 @@ namespace MsTestIntroduction
 				Age = 10,
 				Order = new Order { Id = 91, Price = 910 },
 			};
-			
-			Assert.Inconclusive();
-		}
+
+            expected.ToExpectedObject().ShouldEqual(actual);
+        }
 
 		[TestMethod]
 		public void Test_PartialCompare_Person_Equals_with_ExpectedObjects()
@@ -152,7 +152,7 @@ namespace MsTestIntroduction
 			{
 				Id = 1,
 				Age = 10,
-				Order = new Order { Id = 91 },
+				Order = new Order { Id = 91, Price = 910 },
 			};
 
 			var actual = new Person
@@ -163,10 +163,11 @@ namespace MsTestIntroduction
 				Order = new Order { Id = 91, Price = 910 },
 			};
 
-			Assert.Inconclusive();
-		}
+            //expected.ToExpectedObject().ShouldEqual(actual);
+            expected.ToExpectedObject().ShouldMatch(actual);
+        }
 
-		[TestMethod]
+        [TestMethod]
 		public void Test_DataTable_Equals_with_ExpectedObjects_and_ItemArray()
 		{
 			var expected = new DataTable();
@@ -187,9 +188,15 @@ namespace MsTestIntroduction
 			actual.Rows.Add(2, "B", 20);
 			actual.Rows.Add(3, "C", 30);
 
-			Assert.Inconclusive();
-		}
-	}
+            //expected.ToExpectedObject().ShouldEqual(actual);
+            //expected.ToExpectedObject().ShouldMatch(actual);
+
+            //使用強型別，select ItemArray 
+            var expectedItemArrayCollection = expected.AsEnumerable().Select(dr => dr.ItemArray);
+            var actualItemArrayCollection = actual.AsEnumerable().Select(dr => dr.ItemArray);
+            expectedItemArrayCollection.ToExpectedObject().ShouldEqual(actualItemArrayCollection);
+        }
+    }
 
 	internal class Person //Person didn't override Equals
 	{
