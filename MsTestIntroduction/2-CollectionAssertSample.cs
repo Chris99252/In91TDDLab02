@@ -66,10 +66,11 @@ namespace MsTestIntroduction
 			var actual = new int[] { 1, 3, 5 };
 			var expected = new int[] { 1, 3, 5 };
 
-            Assert.AreEqual(expected, actual);
+            // Assert.AreEqual(expected, actual);
+            Assert.AreSame(expected, actual);
         }
 
-		[TestMethod()]
+        [TestMethod()]
 		public void 驗證Collection_集合內容是否相等_不管順序()
 		{
 			// 兩個集合個數一樣，順序不一樣
