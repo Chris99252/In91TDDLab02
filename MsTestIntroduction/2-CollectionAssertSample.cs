@@ -66,8 +66,8 @@ namespace MsTestIntroduction
 			var actual = new int[] { 1, 3, 5 };
 			var expected = new int[] { 1, 3, 5 };
 
-			Assert.Inconclusive();
-		}
+            Assert.AreEqual(expected, actual);
+        }
 
 		[TestMethod()]
 		public void 驗證Collection_集合內容是否相等_不管順序()
