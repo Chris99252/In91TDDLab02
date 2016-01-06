@@ -94,8 +94,8 @@ namespace MsTestIntroduction
 		public void 驗證Collection_集合內項目是否唯一()
 		{
 			var actual = new int[] { 1, 1, 3, 5 };
-			
-			Assert.Inconclusive();
-		}
+
+            CollectionAssert.AllItemsAreUnique(actual);
+        }
 	}
 }
