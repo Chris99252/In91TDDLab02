@@ -68,7 +68,7 @@ namespace MsTestIntroduction
 
             // Assert.AreEqual(expected, actual);
             // Assert.AreSame(expected, actual);
-            CollectionAssert.AreEqual(expected, actual); 
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod()]
@@ -78,8 +78,8 @@ namespace MsTestIntroduction
 			var actual = new int[] { 1, 3, 5 };
 			var expected = new int[] { 3, 5, 1 };
 
-			Assert.Inconclusive();
-		}
+            CollectionAssert.AreEquivalent(expected, actual);
+        }
 
 		[TestMethod()]
 		public void 驗證Collection_是否為子集合()
