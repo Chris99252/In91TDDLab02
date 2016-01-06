@@ -67,7 +67,8 @@ namespace MsTestIntroduction
 			var expected = new int[] { 1, 3, 5 };
 
             // Assert.AreEqual(expected, actual);
-            Assert.AreSame(expected, actual);
+            // Assert.AreSame(expected, actual);
+            CollectionAssert.AreEqual(expected, actual); 
         }
 
         [TestMethod()]
