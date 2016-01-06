@@ -86,9 +86,9 @@ namespace MsTestIntroduction
 		{            
 			var superset = new int[] { 1, 3, 5 };
 			var subset = new int[] { 5, 3 };
-			
-			Assert.Inconclusive();
-		}
+
+            CollectionAssert.IsSubsetOf(subset, superset);
+        }
 
 		[TestMethod()]
 		public void 驗證Collection_集合內項目是否唯一()
